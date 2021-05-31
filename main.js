@@ -20,15 +20,6 @@ const bigCardContainer = document.querySelector(".big-card-container"); // ко�
 const searchButton = document.querySelector(".component-search"); // кнопка применения фильтров
 const routerContainer = document.getElementById("router"); // контейнер со страницами
 
-//Скролл
-const menu = document.querySelector('menu');
-const fixed = menu.offsetTop;
-const scroll = new Scroll(document, menu);
-
-window.onscroll = function () {
-  scroll.scrollFix(menu, fixed);
-};
-
 // Прелоадер
 const preloader = new Preloader(document.querySelector(".router"), "loading");
 
@@ -109,11 +100,14 @@ searchButton.onclick = () => {
   });
 };
 
-// Бургер
-const burgerOpen = document.querySelector('.fa-bars');
-const burgerClose = document.querySelector('.fa-times');
-const menuBurger = document.querySelector('.menu');
-const burger = new Burger(burgerOpen, burgerClose, menuBurger);
+//Скролл
+const menu = document.querySelector('menu');
+const fixed = menu.offsetTop;
+const scroll = new Scroll(document, menu);
+
+window.onscroll = function () {
+  scroll.scrollFix(menu, fixed);
+};
 
 // События 
 document.addEventListener('menu-opened', (event) => {
@@ -122,6 +116,16 @@ document.addEventListener('menu-opened', (event) => {
 document.addEventListener('menu-closed', (event) => {
   poupup.pushMessage(event.detail.message);
 });
+
+// Бургер
+const burgerOpen = document.querySelector('.fa-bars');
+const burgerClose = document.querySelector('.fa-times');
+const menuBurger = document.querySelector('.menu');
+const burger = new Burger(burgerOpen, burgerClose, menuBurger);
+
+
+
+
 
 
 
